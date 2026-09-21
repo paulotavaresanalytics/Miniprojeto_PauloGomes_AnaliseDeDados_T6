@@ -61,3 +61,16 @@ print("\n=== Sprint 3: Diagnóstico após da limpeza ===")
 print("Nulos por coluna:\n", df.isnull().sum())
 print("Valores em PR_CAT depois do tratamento:")
 print(df["PR_CAT"].value_counts().head(10))
+
+# ======= Valida se uma compra pode ter vários itens diferentes, conforme o: CO_ID ==================
+
+print("\n=== Validação CO_ID ===")
+print("Total de linhas (itens comprados):", len(df))
+print("Total de compras únicas (CO_ID distintos):", df["CO_ID"].nunique())
+
+itens_por_compra = df.groupby("CO_ID").size()
+print("\nDistribuição de itens por compra:")
+print(itens_por_compra.describe())
+print("\nExemplo de uma compra com múltiplos itens:")
+exemplo_id = itens_por_compra[itens_por_compra > 1].index[0]
+print(df[df["CO_ID"] == exemplo_id])
