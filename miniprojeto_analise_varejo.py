@@ -26,3 +26,16 @@ print("\nTipos de dados:")
 print(df.dtypes)
 print("\nAmostra:")
 print(df.head())
+
+# ================== Sprint 2: Transformação de tipos ==================
+
+# Remove colunas vazias no fim de cada lknha do csv
+df = df.loc[:, ~df.columns.str.contains("^Unnamed")]
+
+# Converte DATA de string no formato (dd/mm/aaaa) para datetime real
+df["DATA"] = pd.to_datetime(df["DATA"], format="%d/%m/%Y", errors="coerce")
+
+print("\n=== Sprint 2: Transformação de tipos ===")
+print("Tipos de dados após conversão:")
+print(df.dtypes)
+print("Datas que não converteram (viraram NaT):", df["DATA"].isnull().sum())
