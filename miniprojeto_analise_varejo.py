@@ -74,3 +74,23 @@ print(itens_por_compra.describe())
 print("\nExemplo de uma compra com múltiplos itens:")
 exemplo_id = itens_por_compra[itens_por_compra > 1].index[0]
 print(df[df["CO_ID"] == exemplo_id])
+
+# ================== Sprint 4: Estatística descritiva do número de filhos (CL_FHL) ==================
+
+print("\n=== Sprint 4 ===")
+media = df["CL_FHL"].mean() 
+mediana = df["CL_FHL"].median()
+desvio_padrao = df["CL_FHL"].std()
+moda = df["CL_FHL"].mode()[0]
+maximo = df["CL_FHL"].max()
+minimo = df["CL_FHL"].min()
+contagem = df["CL_FHL"].count()
+quartis = df["CL_FHL"].quantile([0.25, 0.5, 0.75])
+
+print(f"Média: {media:.2f}")
+print(f"Mediana: {mediana}")
+print(f"Desvio padrão: {desvio_padrao:.2f}")
+print(f"Moda: {moda}")
+print(f"Máximo: {maximo} | Mínimo: {minimo}")
+print(f"Contagem: {contagem}")
+print("Quartis (25%, 50%, 75%):\n", quartis)
