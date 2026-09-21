@@ -39,3 +39,25 @@ print("\n=== Sprint 2: Transformação de tipos ===")
 print("Tipos de dados após conversão:")
 print(df.dtypes)
 print("Datas que não converteram (viraram NaT):", df["DATA"].isnull().sum())
+
+# ================== Sprint 3: Limpeza de nulos e duplicatas ==================
+
+print("\nDiagnóstico prévio ===")
+print("Nulos por coluna:\n", df.isnull().sum())
+print("Duplicatas exatas:", df.duplicated().sum())
+print("Valores em PR_CAT antes do tratamento:")
+print(df["PR_CAT"].value_counts(dropna=False).head(10))
+
+# Justificativa: "#N/D" e nulos reais no campo: PR_CAT viram "Sem Categoria", pois a venda em si é um dado válido — só falta a categorização.
+df["PR_CAT"] = df["PR_CAT"].replace("#N/D", "Sem Categoria")
+df["PR_CAT"] = df["PR_CAT"].fillna("Sem Categoria")
+
+# Justificativa: duplicata exata (todas as colunas iguais) não representa uma nova venda real, é repetição de registro — por isso é seguro remover.
+qtd_antes = len(df)
+df = df.drop_duplicates()
+print(f"\nLinhas removidas por duplicata: {qtd_antes - len(df)}")
+
+print("\n=== Sprint 3: Diagnóstico após da limpeza ===")
+print("Nulos por coluna:\n", df.isnull().sum())
+print("Valores em PR_CAT depois do tratamento:")
+print(df["PR_CAT"].value_counts().head(10))
