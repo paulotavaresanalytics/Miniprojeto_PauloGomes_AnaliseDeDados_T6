@@ -131,6 +131,29 @@ print("\n=== % que cada categoria representa dentro do total de cada gênero (co
 pct_por_genero = pivot_categoria_genero.div(pivot_categoria_genero.sum(axis=0), axis=1) * 100
 print(pct_por_genero.round(2))
 
+# ================== Análise temporal: dia da semana e semana a semana ==================
+
+dias_pt = {
+    "Monday": "Segunda-feira", "Tuesday": "Terça-feira", "Wednesday": "Quarta-feira",
+    "Thursday": "Quinta-feira", "Friday": "Sexta-feira", "Saturday": "Sábado", "Sunday": "Domingo"
+}
+df["DIA_SEMANA"] = df["DATA"].dt.day_name().map(dias_pt)
+df["SEMANA_DO_ANO"] = df["DATA"].dt.isocalendar().week
+
+print("\n=== Compras (transações únicas) por dia da semana ===")
+compras_por_dia_semana = df.groupby("DIA_SEMANA")["CO_ID"].nunique().sort_values(ascending=False)
+print(compras_por_dia_semana)
+
+print("\n=== Crescimento semana a semana (compras únicas) ===")
+compras_por_semana = df.groupby("SEMANA_DO_ANO")["CO_ID"].nunique().sort_index()
+crescimento_semanal = compras_por_semana.pct_change() * 100
+print(crescimento_semanal.round(2))
+
+melhor_dia = compras_por_dia_semana.idxmax()
+melhor_semana = compras_por_semana.idxmax()
+print(f"\nDia da semana com mais movimento: {melhor_dia}")
+print(f"Semana com mais compras: semana {melhor_semana} ({compras_por_semana.max()} compras)")
+
 # ================== Conclusões e Insights ==================
 
 print("\n" + "="*60)
