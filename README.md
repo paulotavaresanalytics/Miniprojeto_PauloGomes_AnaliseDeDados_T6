@@ -86,13 +86,21 @@ de um erro fatal.
    discreta de PET e BEBIDAS, onde a presença masculina (48,1% e 48,3%) supera
    levemente a média geral (47,9%).
 
-3. **[DIA]** concentra o maior volume de compras da semana, o que aponta para
-   um padrão de consumo ligado a [rotina de reposição doméstica / final de
-   semana / início de semana — ajuste conforme o dia real].
+3. **Quarta-feira concentra o maior volume de compras da semana** (3.450 compras,
+   ~18,7% do total), destacando-se com folga sobre os demais dias. Chama atenção
+   que **sábado é, na verdade, o dia de menor movimento** (11,6%) — um resultado
+   contraintuitivo para varejo, onde normalmente se espera pico no fim de semana.
+   Isso pode indicar um perfil de cliente que compra durante a rotina de semana
+   (possivelmente reposição de itens básicos, coerente com o domínio de ALIMENTOS
+   no mix de produtos) em vez de compras planejadas de fim de semana.
 
-4. **Semana [SEMANA]** teve o maior número de compras no período analisado,
-   sinalizando [pico sazonal / efeito de datas específicas — investigar se
-   coincide com algum evento do calendário de varejo].
+4. A análise semana a semana mostrou oscilações percentuais muito altas (picos de
+   +299% e quedas de -64%), mas isso reflete o tamanho pequeno da base semanal
+   (~348 compras/semana em média) e não uma tendência consistente de crescimento
+   ou queda ao longo do ano. A semana de maior volume foi a semana 5, com 711
+   compras — mais que o dobro da média — um outlier pontual que mereceria
+   investigação adicional (ex.: alguma promoção ou evento sazonal não capturado
+   pela base) antes de virar uma conclusão de negócio.
 
 5. **Mulheres representam ~52%** das compras únicas — leve maioria, mas a base
    é razoavelmente equilibrada entre os gêneros.
